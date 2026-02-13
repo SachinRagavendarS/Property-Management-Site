@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetroHomes Realty - Alternative Home Layout</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8b5cf6',    // Purple
+                        secondary: '#ec4899',  // Pink
+                        accent: '#f3e8ff',     // Light purple
+                        dark: '#374151',       // Dark gray
+                        'light-gray': '#f9fafb' // Light gray
+                    },
+                    fontFamily: {
+                        'heading': ['Poppins', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-in': 'bounceIn 1s ease-out',
+                        'float': 'float 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        bounceIn: {
+                            '0%': { transform: 'scale(0.3)', opacity: '0' },
+                            '50%': { transform: 'scale(1.05)' },
+                            '70%': { transform: 'scale(0.9)' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="font-body transition-colors duration-300 dark:bg-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg fixed w-full z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-primary font-heading flex items-center">
+                        <i class="fas fa-home mr-2 text-secondary"></i>MetroHomes 
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden lg:block flex-1">
+                    <div class="flex justify-center space-x-6">
+                        <div class="relative group">
+                            <button class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-200">
+                                Home <i class="fas fa-chevron-down ml-1"></i>
+                            </button>
+                            <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                <a href="index.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Home Version 1</a>
+                                <a href="index2.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Home Version 2</a>
+                            </div>
+                        </div>
+                        <a href="about.html" class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-200">About</a>
+                        <a href="contact.html" class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-200">Contact</a>
+                        <div class="relative group">
+                            <button class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-200">
+                                Dashboard <i class="fas fa-chevron-down ml-1"></i>
+                            </button>
+                            <div class="dropdown-menu absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                <a href="user-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">User Dashboard</a>
+                                <a href="admin-dashboard.html" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Admin Dashboard</a>
+                            </div>
+                        </div>
+                        <a href="faq.html" class="nav-link px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-200">FAQ</a>
+
+                    </div>
+                </div>
+
+                <!-- Right: Theme + Login -->
+                 <div class="flex items-center space-x-2">
+        <button id="rtlToggle" class="p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary transition-colors duration-200">
+          <i class="fas fa-globe"></i>
+        </button>
+        <button id="darkModeToggle" class="p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-primary transition-colors duration-200">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:block"></i>
+        </button>
+        <a href="login.html" class="bg-primary text-white px-3 py-1 rounded-md text-sm hover:bg-purple-600 transition-colors duration-200">Login</a>
+      </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden ml-2">
+                    <button id="mobileMenuBtn" class="text-gray-500 hover:text-primary focus:outline-none ml-2">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="lg:hidden hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary">Home1</a>
+                <a href="index2.html" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary">Home2</a>
+                <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary">Contact</a>
+                <a href="admin-dashboard.html" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary">Admin</a>
+                <a href="user-dashboard.html" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary">User</a>
+                <a href="faq.html" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary">FAQ</a>
+                <a href="login.html" class="block px-3 py-2 text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary bg-primary text-white rounded-md mx-3 mt-2 text-center">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Alternative Layout -->
+    <section class="pt-16 min-h-screen bg-gradient-to-br from-accent via-white to-light-gray dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center pb-10 md:pb-0 relative overflow-hidden animate-fade-in">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-5">
+            <div class="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full animate-float"></div>
+            <div class="absolute top-40 right-20 w-16 h-16 bg-secondary/20 rounded-full animate-float" style="animation-delay: 1s;"></div>
+            <div class="absolute bottom-20 left-1/4 w-12 h-12 bg-primary/30 rounded-full animate-float" style="animation-delay: 2s;"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="animate-slide-up">
+                    <h1 class="text-4xl md:text-5xl font-bold text-dark dark:text-white mb-6 font-heading">Your Urban Dream Home Awaits</h1>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">Discover exceptional urban properties that perfectly match your modern lifestyle and connect you with vibrant city living.</p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-3 text-lg"></i>
+                            <span class="text-gray-700 dark:text-gray-300 text-lg">Prime urban locations</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-3 text-lg"></i>
+                            <span class="text-gray-700 dark:text-gray-300 text-lg">Modern city amenities</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-3 text-lg"></i>
+                            <span class="text-gray-700 dark:text-gray-300 text-lg">Trusted by urban professionals</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html" class="bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-2xl hover:from-purple-700 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg text-center font-bold text-lg">
+                            Start Your Search
+                        </a>
+                        <a href="about.html" class="border-3 border-primary text-primary px-8 py-4 rounded-2xl hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105 text-center font-bold text-lg">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="relative animate-bounce-in" style="animation-delay: 0.5s;">
+                    <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg" alt="Urban Property" class="rounded-3xl shadow-2xl w-full">
+                    <div class="absolute top-6 right-6 bg-gradient-to-r from-primary to-secondary text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg animate-float">
+                        Prime Location
+                    </div>
+                    <div class="absolute bottom-6 left-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-lg">
+                        <div class="text-2xl font-bold text-primary mb-1">$2,850/month</div>
+                        <div class="text-gray-600 dark:text-gray-400">Downtown Urban Loft</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="animate-slide-up">
+                    <div class="text-5xl font-bold mb-3">1,847</div>
+                    <div class="text-xl opacity-90">Active Properties</div>
+                </div>
+                <div class="animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="text-5xl font-bold mb-3">3,200+</div>
+                    <div class="text-xl opacity-90">Happy Clients</div>
+                </div>
+                <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="text-5xl font-bold mb-3">15+</div>
+                    <div class="text-xl opacity-90">Years Experience</div>
+                </div>
+                <div class="animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="text-5xl font-bold mb-3">98%</div>
+                    <div class="text-xl opacity-90">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Showcase Grid -->
+    <section class="py-20 bg-accent dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark dark:text-white mb-6 font-heading">Featured Urban Properties</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-xl">Explore our curated collection of modern city homes</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-700 rounded-3xl shadow-2xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg" alt="Urban Loft" class="w-full h-56 object-cover">
+                        <div class="absolute top-6 right-6 bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">New Listing</div>
+                        <div class="absolute bottom-6 left-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-4 py-2 rounded-2xl">
+                            <div class="text-lg font-bold text-primary">$2,850/month</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-3">Downtown Urban Loft</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 flex items-center text-lg">
+                            <i class="fas fa-map-marker-alt mr-2 text-primary"></i>Metro City Center
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
+                                <span><i class="fas fa-bed mr-1"></i>2 Beds</span>
+                                <span><i class="fas fa-bath mr-1"></i>2 Baths</span>
+                                <span><i class="fas fa-vector-square mr-1"></i>1,200 sqft</span>
+                            </div>
+                            <a href="property-details.html" class="bg-primary text-white p-3 rounded-2xl hover:bg-purple-700 transition-all duration-300 transform hover:scale-110 shadow-lg">
+                                <i class="fas fa-eye text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-3xl shadow-2xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg" alt="Skyline Apartment" class="w-full h-56 object-cover">
+                        <div class="absolute bottom-6 left-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-4 py-2 rounded-2xl">
+                            <div class="text-lg font-bold text-primary">$3,200/month</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-3">Skyline City Apartment</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 flex items-center text-lg">
+                            <i class="fas fa-map-marker-alt mr-2 text-primary"></i>Financial District
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
+                                <span><i class="fas fa-bed mr-1"></i>3 Beds</span>
+                                <span><i class="fas fa-bath mr-1"></i>2 Baths</span>
+                                <span><i class="fas fa-vector-square mr-1"></i>1,500 sqft</span>
+                            </div>
+                            <a href="property-details.html" class="bg-primary text-white p-3 rounded-2xl hover:bg-purple-700 transition-all duration-300 transform hover:scale-110 shadow-lg">
+                                <i class="fas fa-eye text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-3xl shadow-2xl overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg" alt="Modern Condo" class="w-full h-56 object-cover">
+                        <div class="absolute bottom-6 left-6 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm px-4 py-2 rounded-2xl">
+                            <div class="text-lg font-bold text-primary">$2,650/month</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-dark dark:text-white mb-3">Modern Arts Condo</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 flex items-center text-lg">
+                            <i class="fas fa-map-marker-alt mr-2 text-primary"></i>Arts Quarter
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
+                                <span><i class="fas fa-bed mr-1"></i>2 Beds</span>
+                                <span><i class="fas fa-bath mr-1"></i>1 Bath</span>
+                                <span><i class="fas fa-vector-square mr-1"></i>950 sqft</span>
+                            </div>
+                            <a href="property-details.html" class="bg-primary text-white p-3 rounded-2xl hover:bg-purple-700 transition-all duration-300 transform hover:scale-110 shadow-lg">
+                                <i class="fas fa-eye text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Elements Showcase -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark dark:text-white mb-6 font-heading">Modern Design Excellence</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-xl">Experience our cutting-edge design features crafted for urban living</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Floating Card -->
+                <div class="bg-gradient-to-br from-primary to-secondary rounded-3xl p-8 text-white animate-float shadow-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                    <div class="text-4xl mb-6 animate-bounce-in">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Smooth Animations</h3>
+                    <p class="opacity-90 text-lg">Experience fluid animations that bring elegance and life to every interaction on our platform.</p>
+                </div>
+
+                <!-- Glass Card -->
+                <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 dark:border-gray-700 shadow-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="text-4xl text-primary mb-6">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark dark:text-white mb-4">Glass Morphism</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">Modern glass-like effects that create depth and visual sophistication in our interface.</p>
+                </div>
+
+                <!-- Gradient Card -->
+                <div class="bg-gradient-to-r from-primary via-purple-500 to-secondary rounded-3xl p-8 text-white shadow-2xl hover:shadow-xl transition-all duration-300 transform hover:scale-105 animate-slide-up" style="animation-delay: 0.4s;">
+                    <div class="text-4xl mb-6">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Dynamic Gradients</h3>
+                    <p class="opacity-90 text-lg">Vibrant gradients that energize our design and create memorable visual experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-gradient-to-br from-accent via-white to-light-gray dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-dark dark:text-white mb-6 font-heading">Our Urban Services</h2>
+                <p class="text-gray-600 dark:text-gray-400 text-xl">Comprehensive urban property solutions tailored for modern city living</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-3xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up">
+                    <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-float">
+                        <i class="fas fa-search text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark dark:text-white mb-4">Urban Property Search</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">Access exclusive city listings with our advanced search technology and local expertise.</p>
+                </div>
+                <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-3xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 0.1s;">
+                    <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay: 0.5s;">
+                        <i class="fas fa-city text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark dark:text-white mb-4">City Living Guidance</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">Navigate urban neighborhoods with insights from our city living specialists.</p>
+                </div>
+                <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-3xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay: 1s;">
+                        <i class="fas fa-file-contract text-blue-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark dark:text-white mb-4">Urban Legal Support</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">Expert guidance through city property transactions and lease agreements.</p>
+                </div>
+                <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-3xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-slide-up" style="animation-delay: 0.3s;">
+                    <div class="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-float" style="animation-delay: 1.5s;">
+                        <i class="fas fa-chart-line text-green-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-dark dark:text-white mb-4">City Investment Advice</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">Strategic urban property investment guidance for optimal returns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-primary via-purple-600 to-secondary relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 font-heading">Ready to Find Your Urban Home?</h2>
+            <p class="text-xl text-white/90 mb-12">Join thousands of satisfied clients who found their perfect city property with MetroHomes Realty</p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="contact.html" class="bg-white text-primary px-10 py-4 rounded-2xl hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-2xl font-bold text-xl">
+                    Schedule Consultation
+                </a>
+                <a href="user-dashboard.html" class="border-3 border-white text-white px-10 py-4 rounded-2xl hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 font-bold text-xl">
+                    Browse Properties
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <footer class="bg-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div class="col-span-1 animate-slide-up">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-home text-primary text-xl mr-3"></i>
+                        <span class="text-xl font-bold font-heading">MetroHomes</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-lg">Your trusted gateway to modern urban living. We connect you with exceptional properties that match your lifestyle and aspirations.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-2xl animate-float">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-2xl animate-float" style="animation-delay: 0.2s;">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-2xl animate-float" style="animation-delay: 0.4s;">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary transition-colors text-2xl animate-float" style="animation-delay: 0.6s;">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="animate-slide-up" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-semibold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition-colors text-lg">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-primary transition-colors text-lg">About</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-primary transition-colors text-lg">Contact</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-primary transition-colors text-lg">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="animate-slide-up" style="animation-delay: 0.4s;">
+                    <h3 class="text-xl font-semibold mb-6">Property Types</h3>
+                    <ul class="space-y-3">
+                        <li><a href="property-details.html" class="text-gray-400 hover:text-primary transition-colors text-lg">Apartments</a></li>
+                        <li><a href="property-details.html" class="text-gray-400 hover:text-primary transition-colors text-lg">Houses</a></li>
+                        <li><a href="property-details.html" class="text-gray-400 hover:text-primary transition-colors text-lg">Lofts</a></li>
+                        <li><a href="property-details.html" class="text-gray-400 hover:text-primary transition-colors text-lg">Commercial</a></li>
+                    </ul>
+                </div>
+                <div class="animate-slide-up" style="animation-delay: 0.6s;">
+                    <h3 class="text-xl font-semibold mb-6">Contact Info</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-center text-lg"><i class="fas fa-map-marker-alt mr-3 text-primary"></i>123 Urban Street, Suite 100</li>
+                        <li class="flex items-center text-lg"><i class="fas fa-phone mr-3 text-primary"></i>(555) 123-4567</li>
+                        <li class="flex items-center text-lg"><i class="fas fa-envelope mr-3 text-primary"></i>in@metro.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center animate-fade-in">
+                <p class="text-gray-400 text-lg">© 2026 MetroHomes Realty. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+     
